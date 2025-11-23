@@ -1,12 +1,16 @@
 package com.paymentapp.user_service.service;
 
+import com.paymentapp.user_service.dto.UserRequest;
+import com.paymentapp.user_service.dto.UserResponse;
 import com.paymentapp.user_service.entity.User;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface UserService {
-    User createUser(User user);
-    Optional<User> getUserById(Long id);
+
+    ResponseEntity<UserResponse> createUser(UserRequest userRequest);
+
+    ResponseEntity<UserResponse>  getUserById(Long id);
     List<User> getAllUsers();
 }
