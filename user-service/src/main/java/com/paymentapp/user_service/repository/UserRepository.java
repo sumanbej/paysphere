@@ -1,4 +1,4 @@
-package com.paymentapp.user_service;
+package com.paymentapp.user_service.repository;
 
 import com.paymentapp.user_service.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
