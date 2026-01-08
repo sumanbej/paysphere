@@ -1,4 +1,4 @@
-/.idea/
+/.idea
 # IntelliJ IDEA
 .idea/
 *.iml
@@ -8,3 +8,4 @@ target/
 
 # Logs
 *.log
+/.idea/
