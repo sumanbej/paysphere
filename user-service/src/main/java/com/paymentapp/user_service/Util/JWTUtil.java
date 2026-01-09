@@ -6,6 +6,7 @@ import io.jsonwebtoken.security.Keys;
 import org.springframework.stereotype.Component;
 
 import java.security.Key;
+import java.util.Date;
 import java.util.function.Function;
 
 @Component
@@ -32,6 +33,15 @@ public class JWTUtil {
     public String extractEmail(String token) {
         return extractClaim(token, Claims::getSubject);
     }
-
+    public Date extractExpiration(String token) {
+        return extractClaim(token, Claims::getExpiration);
+    }
+    private boolean isTokenExpired(String token) {
+        return extractExpiration(token).before(new Date());
+    }
+    public boolean validateToken(String token, String userEmail) {
+        String emailFromToken = extractEmail(token);
+        return emailFromToken.equals(userEmail) && !isTokenExpired(token);
+    }
 
 }
