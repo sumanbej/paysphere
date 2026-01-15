@@ -22,4 +22,15 @@ public class UserController {
         return userService.getUserById(id);
     }
 
+    @PostMapping("/signup")
+    public ResponseEntity<?> signup(@RequestBody UserRequest userRequest) {
+        return userService.createUser(userRequest);
+    }
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
+        return userService.login(loginRequest);
+
+    }
+
+
 }
